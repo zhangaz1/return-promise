@@ -1,10 +1,10 @@
 {
-  "name": "returnPromise",
-  "version": "0.2.0",
+  "name": "return-promise",
+  "version": "0.2.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp"
   },
   "repository": {
     "type": "git",
