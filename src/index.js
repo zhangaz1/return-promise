@@ -1,6 +1,6 @@
 ;
 (function(proto) {
-	if(proto && !proto.returnPromise) {
+	if(true || proto && !proto.returnPromise) {
 		proto.returnPromise = returnPromise;
 	}
 
@@ -9,7 +9,7 @@
 	function returnPromise() {
 		return new Promise((resolve, reject) => {
 			const args = toArray(arguments);
-			args.push(callback);
+			args.push(callback); // push callback
 
 			try {
 				this.apply(null, args);
@@ -23,7 +23,11 @@
 				if(error) {
 					reject(error);
 				} else {
-					resolve(arguments[1]); // promise 只支持resolve一个值，可以在内部自己组织
+					const args = toArray(arguments);
+					args.shift(); // shift error
+					const result = args.length === 1 ? args[0] : args;
+
+					resolve(result); // promise 只支持resolve一个值，可以在内部自己组织
 				}
 			}
 		});
