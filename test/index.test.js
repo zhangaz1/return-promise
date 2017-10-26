@@ -5,6 +5,7 @@ const should = require('should');
 const sinon = require('sinon');
 
 require('./../src/index.js');
+// require('return-promise');
 
 describe('returnPromise', () => {
 

@@ -4,6 +4,8 @@
 		proto.returnPromise = returnPromise;
 	}
 
+	exports.returnPromise = returnPromise;
+
 	return void(0);
 
 	function returnPromise() {

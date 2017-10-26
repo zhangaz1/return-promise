@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhangaz1/returnPromise.git"
+    "url": "git+https://github.com/zhangaz1/return-promise.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zhangaz1/returnPromise/issues"
+    "url": "https://github.com/zhangaz1/return-promise/issues"
   },
-  "homepage": "https://github.com/zhangaz1/returnPromise#readme",
+  "homepage": "https://github.com/zhangaz1/return-promise#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
