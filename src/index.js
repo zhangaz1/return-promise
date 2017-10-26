@@ -1,6 +1,6 @@
 ;
 (function(proto) {
-	if(true || proto && !proto.returnPromise) {
+	if(proto && !proto.returnPromise) {
 		proto.returnPromise = returnPromise;
 	}
 
