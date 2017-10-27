@@ -12,9 +12,9 @@ fs.readFile('/etc/hosts', 'utf8', function (err,data) {
 
 =>
 
-fs = require('return-promise');
+require('return-promise');
 
-fs = require('fs')
+fs = require('fs');
 fs.readFile.returnPromise('/etc/hosts', 'utf8')
 	.then(data => console.log(data))
 	.catch(err => console.log(err));
