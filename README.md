@@ -9,7 +9,7 @@ $ npm install --save return-promise
 
 ## Usage
 
-```
+```js
 fs = require('fs')
 fs.readFile('/etc/hosts', 'utf8', function (err,data) {
   if (err) {
@@ -21,7 +21,7 @@ fs.readFile('/etc/hosts', 'utf8', function (err,data) {
 
 =>
 
-```
+```js
 require('return-promise');
 
 fs = require('fs');
