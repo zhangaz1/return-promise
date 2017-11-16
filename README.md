@@ -1,6 +1,13 @@
 # returnPromise
 
-simple to to the callbackify functions to promisify:
+simple to the callbackify functions to promisify:
+
+## Install
+```
+$ npm install --save return-promise
+```
+
+## Usage
 
 ```
 fs = require('fs')
