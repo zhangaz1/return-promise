@@ -25,7 +25,8 @@ fs.readFile('/etc/hosts', 'utf8', function (err,data) {
 require('return-promise');
 
 fs = require('fs');
-fs.readFile.returnPromise('/etc/hosts', 'utf8')
+fs.readFile
+  .returnPromise('/etc/hosts', 'utf8')
 	.then(data => console.log(data))
 	.catch(err => console.log(err));
 ```
