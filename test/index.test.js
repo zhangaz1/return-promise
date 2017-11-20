@@ -24,7 +24,7 @@ describe('returnPromise', () => {
 		should(promise).have.property('then')
 			.which.is.Function();
 
-		promise.then(function(result) {});
+		promise.then(function (result) {});
 	});
 
 	describe('resolve', () => {
@@ -73,6 +73,63 @@ describe('returnPromise', () => {
 
 	});
 
+	describe('test function has owner', function () {
 
+		const user = {
+			name: 'zs',
+			sayHi: function (something, cb) {
+				cb(null, `Hi, ${something}, i'm ${this.name},`);
+			}
+		};
+
+		it('should can transport this', function () {
+			let expect = null;
+			user.sayHi('world', (error, result) => expect = result);
+
+			const success = sinon.stub();
+			const failed = sinon.stub();
+
+			return user.sayHi.bind(user) // *** bind to this ***
+				.returnPromise('world')
+				.then(success)
+				.catch(failed)
+				.then(() => {
+					success.should.have.properties({
+						called: true,
+						calledOnce: true,
+					});
+
+					failed.should.have.properties({
+						called: false,
+						calledOnce: false,
+					});
+				});
+		});
+
+		it('should can transport this, if no bind, and use this then reject', function () {
+			let expect = null;
+			user.sayHi('world', (error, result) => expect = result);
+
+			const success = sinon.stub();
+			const failed = sinon.stub();
+
+			return user.sayHi
+				.returnPromise('world')
+				.then(success)
+				.catch(failed)
+				.then(() => {
+					success.should.have.properties({
+						called: false,
+						calledOnce: false,
+					});
+
+					failed.should.have.properties({
+						called: true,
+						calledOnce: true,
+					});
+				});
+		});
+
+	});
 
 });

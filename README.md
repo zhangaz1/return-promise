@@ -30,3 +30,27 @@ fs.readFile
 	.then(data => console.log(data))
 	.catch(err => console.log(err));
 ```
+
+
+### if you need use this.xxx in the fun:
+
+```
+
+		const user = {
+			name: 'zs',
+			sayHi: function (something, cb) {
+				cb(`Hi, ${something}, i'm ${this.name},`);
+			}
+		};
+
+		user.sayHi('world', console.log.bind(console));
+
+		it('should can transport this', function () {
+			user.sayHi.bind(user) // *** bind to this ***
+				.returnPromise('world')
+				.then(console.log.bind(console))
+				.catch(console.error.bind(console));
+		});
+
+
+```
