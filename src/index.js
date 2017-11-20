@@ -1,10 +1,12 @@
 ;
-(function(proto) {
-	if(proto && !proto.returnPromise) {
+(function (proto) {
+	if (proto && !proto.returnPromise) {
 		proto.returnPromise = returnPromise;
 	}
 
-	exports.returnPromise = returnPromise;
+	if (exports) {
+		exports.returnPromise = returnPromise;
+	}
 
 	return void(0);
 
@@ -15,14 +17,14 @@
 
 			try {
 				this.apply(null, args);
-			} catch(ex) {
+			} catch (ex) {
 				reject(ex);
 			}
 
 			return void(0);
 
 			function callback(error) {
-				if(error) {
+				if (error) {
 					reject(error);
 				} else {
 					const args = toArray(arguments);
