@@ -4,9 +4,9 @@
 		proto.returnPromise = returnPromise;
 	}
 
-	if (exports) {
-		exports.returnPromise = returnPromise;
-	}
+	// if (typeof exports !== 'undefined') {
+	// 	exports.returnPromise = returnPromise;
+	// }
 
 	return void(0);
 

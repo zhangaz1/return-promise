@@ -39,7 +39,7 @@ fs.readFile
 		const user = {
 			name: 'zs',
 			sayHi: function (something, cb) {
-				cb(`Hi, ${something}, i'm ${this.name},`);
+				cb(null, `Hi, ${something}, i'm ${this.name},`);
 			}
 		};
 
